@@ -153,7 +153,7 @@ const book = getBook(1);
 // const title = book.title;
 // const author = book.author;
 
-const {title, author, pages, genres} = book;
+const {title, author, pages, genres, publicationDate} = book;
 
 console.log(author, title, genres);
 
@@ -176,4 +176,8 @@ const updatedBook = {
   pages:1210 // overrides original pages property (must be done after spreading the object, othervise the object will override the previously added propery)
 };
 
-updatedBook
+updatedBook;
+
+const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${publicationDate.split("-")[0]}`;
+
+summaryString;
