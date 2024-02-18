@@ -143,8 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-
-// Destructuring 
+// Destructuring
 
 const books = getBooks();
 
@@ -153,7 +152,8 @@ const book = getBook(1);
 // const title = book.title;
 // const author = book.author;
 
-const {title, author, pages, genres, publicationDate} = book;
+const { title, author, pages, genres, publicationDate, hasMovieAdaptation } =
+  book;
 
 console.log(author, title, genres);
 
@@ -164,20 +164,26 @@ const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 
 console.log(primaryGenre, secondaryGenre, otherGenres);
 
-
 // const newGenres = [...genres, "epic fantasy"];
 const newGenres = ["epic fantasy", ...genres];
 
-newGenres
+newGenres;
 
 const updatedBook = {
   ...book,
-  moviePublicationDate: '2001-12-19', // add new property
-  pages:1210 // overrides original pages property (must be done after spreading the object, othervise the object will override the previously added propery)
+  moviePublicationDate: "2001-12-19", // add new property
+  pages: 1210, // overrides original pages property (must be done after spreading the object, othervise the object will override the previously added propery)
 };
 
 updatedBook;
 
-const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${publicationDate.split("-")[0]}`;
+const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${
+  publicationDate.split("-")[0]
+}.\
+the book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
 
 summaryString;
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than a thousand";
+pagesRange;
+console.log(`The book has ${pagesRange} pages`);
