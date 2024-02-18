@@ -148,7 +148,7 @@ function getBook(id) {
 
 const books = getBooks();
 
-const book = getBook(2);
+const book = getBook(1);
 
 // const title = book.title;
 // const author = book.author;
@@ -165,4 +165,15 @@ const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 console.log(primaryGenre, secondaryGenre, otherGenres);
 
 
+// const newGenres = [...genres, "epic fantasy"];
+const newGenres = ["epic fantasy", ...genres];
 
+newGenres
+
+const updatedBook = {
+  ...book,
+  moviePublicationDate: '2001-12-19', // add new property
+  pages:1210 // overrides original pages property (must be done after spreading the object, othervise the object will override the previously added propery)
+};
+
+updatedBook
