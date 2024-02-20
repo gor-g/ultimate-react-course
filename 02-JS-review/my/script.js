@@ -143,77 +143,77 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-// Destructuring
+// // Destructuring
 
-const books = getBooks();
+// const books = getBooks();
 
-const book = getBook(1);
+// const book = getBook(1);
 
-// const title = book.title;
-// const author = book.author;
+// // const title = book.title;
+// // const author = book.author;
 
-const { title, author, pages, genres, publicationDate, hasMovieAdaptation } =
-  book;
+// const { title, author, pages, genres, publicationDate, hasMovieAdaptation } =
+//   book;
 
-console.log(author, title, genres);
+// console.log(author, title, genres);
 
-// const primaryGenre = genres[0];
-// const secondaryGenre = genres[1];
+// // const primaryGenre = genres[0];
+// // const secondaryGenre = genres[1];
 
-const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+// const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 
-console.log(primaryGenre, secondaryGenre, otherGenres);
+// console.log(primaryGenre, secondaryGenre, otherGenres);
 
-// const newGenres = [...genres, "epic fantasy"];
-const newGenres = ["epic fantasy", ...genres];
+// // const newGenres = [...genres, "epic fantasy"];
+// const newGenres = ["epic fantasy", ...genres];
 
-newGenres;
+// newGenres;
 
-const updatedBook = {
-  ...book,
-  moviePublicationDate: "2001-12-19", // add new property
-  pages: 1210, // overrides original pages property (must be done after spreading the object, othervise the object will override the previously added propery)
-};
+// const updatedBook = {
+//   ...book,
+//   moviePublicationDate: "2001-12-19", // add new property
+//   pages: 1210, // overrides original pages property (must be done after spreading the object, othervise the object will override the previously added propery)
+// };
 
-updatedBook;
+// updatedBook;
 
-// function getYear(str) {
-//   return str.split("-")[0];
-// }
+// // function getYear(str) {
+// //   return str.split("-")[0];
+// // }
 
-const getYear = (str) => str.split("-")[0];
+// const getYear = (str) => str.split("-")[0];
 
-const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${getYear(
-  publicationDate
-)}.\
-the book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
+// const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${getYear(
+//   publicationDate
+// )}.\
+// the book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
 
-summaryString;
+// summaryString;
 
-const pagesRange = pages > 1000 ? "over a thousand" : "less than a thousand";
-pagesRange;
-console.log(`The book has ${pagesRange} pages`);
+// const pagesRange = pages > 1000 ? "over a thousand" : "less than a thousand";
+// pagesRange;
+// console.log(`The book has ${pagesRange} pages`);
 
-console.log(true && "Some String");
-console.log(false && "Some String");
+// console.log(true && "Some String");
+// console.log(false && "Some String");
 
-// falsy : 0, '', null, undefined
-console.log("Martin" && "Some String");
-console.log(0 && "Some Sting");
+// // falsy : 0, '', null, undefined
+// console.log("Martin" && "Some String");
+// console.log(0 && "Some Sting");
 
-console.log(true || "Some String");
-console.log(false || "Some String");
+// console.log(true || "Some String");
+// console.log(false || "Some String");
 
-console.log(book.translations.spanish);
+// console.log(book.translations.spanish);
 
-const spanishTranslation = book.translations.spanish || "Not translated ";
-spanishTranslation;
+// const spanishTranslation = book.translations.spanish || "Not translated ";
+// spanishTranslation;
 
-const grolandianTranslation = book.translations.grolandian || "Not translated ";
-grolandianTranslation;
+// const grolandianTranslation = book.translations.grolandian || "Not translated ";
+// grolandianTranslation;
 
-console.log(0 || "no data");
-console.log(0 ?? "no data");
+// console.log(0 || "no data");
+// console.log(0 ?? "no data");
 
 function getTotalReviewCount(book) {
   const googreads = book.reviews?.goodreads?.reviewsCount ?? 0; // reads goodreads only if revews is defined, and reads reviewsCount only when goodreads is defined
@@ -221,8 +221,35 @@ function getTotalReviewCount(book) {
   return googreads + librarything;
 }
 
-console.log(getTotalReviewCount(book));
+// console.log(getTotalReviewCount(book));
 
-const book3 = getBook(3);
+// const book3 = getBook(3);
 
-console.log(getTotalReviewCount(book3));
+// console.log(getTotalReviewCount(book3));
+
+// // Arrays stuff
+
+const books = getBooks();
+
+const x = [1, 2, 3, 4].map((el) => el * 2);
+console.log(x);
+
+const titles = books.map((b) => b.title);
+console.log(titles);
+
+// const essentialData = books.map(book => {
+//   return {
+//     title : books.title,
+//     author : book.author
+//   }
+// });
+
+// essentialData;
+
+const essentialData = books.map((book) => ({
+  title: books.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book),
+}));
+
+essentialData;
