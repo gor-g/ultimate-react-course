@@ -214,3 +214,15 @@ grolandianTranslation;
 
 console.log(0 || "no data");
 console.log(0 ?? "no data");
+
+function getTotalReviewCount(book) {
+  const googreads = book.reviews?.goodreads?.reviewsCount ?? 0; // reads goodreads only if revews is defined, and reads reviewsCount only when goodreads is defined
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0; // reads librarything only if revews is defined, and reads reviewsCount only when librarything is defined
+  return googreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+
+const book3 = getBook(3);
+
+console.log(getTotalReviewCount(book3));
