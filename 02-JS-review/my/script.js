@@ -247,9 +247,19 @@ console.log(titles);
 // essentialData;
 
 const essentialData = books.map((book) => ({
-  title: books.title,
+  title: book.title,
   author: book.author,
   reviewsCount: getTotalReviewCount(book),
 }));
 
 essentialData;
+
+const longBooks = books.filter(
+  (book) => book.pages >= 500 && book.hasMovieAdaptation
+);
+longBooks;
+
+const adventureBooksEssentialData = books
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooksEssentialData;
