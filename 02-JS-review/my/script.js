@@ -177,9 +177,15 @@ const updatedBook = {
 
 updatedBook;
 
-const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${
-  publicationDate.split("-")[0]
-}.\
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+const getYear = (str) => str.split("-")[0];
+
+const summaryString = `${title} is a ${pages}-page long book that was written by ${author} and published in ${getYear(
+  publicationDate
+)}.\
 the book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
 
 summaryString;
