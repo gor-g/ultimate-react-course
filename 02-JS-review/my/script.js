@@ -193,3 +193,24 @@ summaryString;
 const pagesRange = pages > 1000 ? "over a thousand" : "less than a thousand";
 pagesRange;
 console.log(`The book has ${pagesRange} pages`);
+
+console.log(true && "Some String");
+console.log(false && "Some String");
+
+// falsy : 0, '', null, undefined
+console.log("Martin" && "Some String");
+console.log(0 && "Some Sting");
+
+console.log(true || "Some String");
+console.log(false || "Some String");
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "Not translated ";
+spanishTranslation;
+
+const grolandianTranslation = book.translations.grolandian || "Not translated ";
+grolandianTranslation;
+
+console.log(0 || "no data");
+console.log(0 ?? "no data");
