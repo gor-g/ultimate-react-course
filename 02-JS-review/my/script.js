@@ -329,10 +329,29 @@ v;
 
 */
 
-console.log(fetch("https://jsonplaceholder.typicode.com/todos"));
+// console.log(fetch("https://jsonplaceholder.typicode.com/todos"));
 
-fetch("https://jsonplaceholder.typicode.com/todos")
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+// console.log("Martin");
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+  return data;
+}
+
+// const todos = getTodos();
+
+// console.log(todos);
+
+// console.log("Martin");
+
+const todos = await getTodos();
+
+console.log(todos);
 
 console.log("Martin");
