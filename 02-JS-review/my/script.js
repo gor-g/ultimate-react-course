@@ -264,5 +264,22 @@ const adventureBooksEssentialData = books
   .map((book) => book.title);
 adventureBooksEssentialData;
 
+// 02 Reduce
 const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
 pagesAllBooks;
+
+// 02 Sort
+const arr = [3, 2, 1, 2, 32, 12, 24];
+const sorted = arr.sort((a, b) => a - b);
+sorted;
+arr;
+const arr2 = [3, 2, 1, 2, 32, 12, 24];
+const sorted2 = arr2.slice().sort((a, b) => a - b);
+sorted2;
+arr2;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+const titlesSortedByPages = sortedByPages.map((book) => book.title);
+const pagesSortedByPages = sortedByPages.map((book) => book.pages);
+titlesSortedByPages;
+pagesSortedByPages;
