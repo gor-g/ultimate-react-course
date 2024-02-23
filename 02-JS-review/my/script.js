@@ -263,3 +263,6 @@ const adventureBooksEssentialData = books
   .filter((book) => book.genres.includes("adventure"))
   .map((book) => book.title);
 adventureBooksEssentialData;
+
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pagesAllBooks;
