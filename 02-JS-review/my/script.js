@@ -215,11 +215,11 @@ function getBook(id) {
 // console.log(0 || "no data");
 // console.log(0 ?? "no data");
 
-function getTotalReviewCount(book) {
-  const googreads = book.reviews?.goodreads?.reviewsCount ?? 0; // reads goodreads only if revews is defined, and reads reviewsCount only when goodreads is defined
-  const librarything = book.reviews?.librarything?.reviewsCount ?? 0; // reads librarything only if revews is defined, and reads reviewsCount only when librarything is defined
-  return googreads + librarything;
-}
+// function getTotalReviewCount(book) {
+//   const googreads = book.reviews?.goodreads?.reviewsCount ?? 0; // reads goodreads only if revews is defined, and reads reviewsCount only when goodreads is defined
+//   const librarything = book.reviews?.librarything?.reviewsCount ?? 0; // reads librarything only if revews is defined, and reads reviewsCount only when librarything is defined
+//   return googreads + librarything;
+// }
 
 // console.log(getTotalReviewCount(book));
 
@@ -227,6 +227,7 @@ function getTotalReviewCount(book) {
 
 // console.log(getTotalReviewCount(book3));
 
+/*
 // // Arrays stuff
 
 const books = getBooks();
@@ -245,6 +246,13 @@ console.log(titles);
 // });
 
 // essentialData;
+
+
+function getTotalReviewCount(book) {
+  const googreads = book.reviews?.goodreads?.reviewsCount ?? 0; // reads goodreads only if revews is defined, and reads reviewsCount only when goodreads is defined
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0; // reads librarything only if revews is defined, and reads reviewsCount only when librarything is defined
+  return googreads + librarything;
+}
 
 const essentialData = books.map((book) => ({
   title: book.title,
@@ -318,3 +326,13 @@ v = booksAfterUpdate.map((book) => book.title);
 v;
 v = booksAfterUpdate.map((book) => book.pages);
 v;
+
+*/
+
+console.log(fetch("https://jsonplaceholder.typicode.com/todos"));
+
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+console.log("Martin");
