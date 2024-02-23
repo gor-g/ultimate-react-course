@@ -283,3 +283,38 @@ const titlesSortedByPages = sortedByPages.map((book) => book.title);
 const pagesSortedByPages = sortedByPages.map((book) => book.pages);
 titlesSortedByPages;
 pagesSortedByPages;
+
+// 02 Immutable Arrays
+
+// Add a book to an array
+
+const newBook = {
+  id: 6,
+  title: "Martin dans le foret",
+  author: "Martin Le Foret",
+};
+
+const booksAfterAdd = [...books, newBook];
+var v = booksAfterAdd.map((book) => book.title);
+v;
+
+// remove a book
+
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+v = booksAfterDelete.map((book) => book.title);
+v;
+
+// update a book
+
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1 } : book
+);
+v = booksAfterDelete.map((book) => book.title);
+v;
+v = booksAfterDelete.map((book) => book.pages);
+v;
+
+v = booksAfterUpdate.map((book) => book.title);
+v;
+v = booksAfterUpdate.map((book) => book.pages);
+v;
