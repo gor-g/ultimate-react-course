@@ -36,16 +36,18 @@ function Menu() {
 
 function Pizza(props) {
   const o = props.pizzaObj;
-  return (
-    <li className="pizza">
-      <img src={o.photoName} alt={o.name} />
-      <div>
-        <h3>{o.name}</h3>
-        <p>{o.ingredients}</p>
-        <span>{o.price}</span>
-      </div>
-    </li>
-  );
+  if (o.soldOut) return null;
+  else
+    return (
+      <li className="pizza">
+        <img src={o.photoName} alt={o.name} />
+        <div>
+          <h3>{o.name}</h3>
+          <p>{o.ingredients}</p>
+          <span>{o.price}</span>
+        </div>
+      </li>
+    );
 }
 
 function Footer() {
